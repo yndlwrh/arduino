@@ -17,10 +17,10 @@ All text above, and the splash screen must be included in any redistribution
 *********************************************************************/
 /*********************************************************************
  * RS-WS-N01-TR temperature and humidity sensor
-//(Sensor Device)black wire <-> RS485 A+ (RS485-RS232)
-//Sensor Device)gray wire <-> RS485 B- (RS485-RS232)
-// (RS485-RS232)RxD <-> 0->RX (Arduino)
-// (RS485-RS232)TxD <-> 1->TX  (Arduino)
+// (Sensor Device) black wire <->  RS485 A+ (RS485-RS232)
+// (Sensor Device) gray  wire <->  RS485 B- (RS485-RS232)
+// (RS485-RS232)   RxD        <->  0 -> RX  (Arduino UNO R3)
+// (RS485-RS232)   TxD        <->  1 -> TX  (Arduino UNO R3)
 *********************************************************************/
 
 #include <SimpleModbusMaster.h>
