@@ -16,18 +16,6 @@ BSD license, check license.txt for more information
 All text above, and the splash screen must be included in any redistribution
 *********************************************************************/
 
-//libs for DS18B20
-#include <OneWire.h>
-#include <DallasTemperature.h>
-// Data wire is plugged into port 2 on the Arduino
-#define ONE_WIRE_BUS 2
-
-// Setup a oneWire instance to communicate with any OneWire devices (not just Maxim/Dallas temperature ICs)
-OneWire oneWire(ONE_WIRE_BUS);
-
-// Pass our oneWire reference to Dallas Temperature. 
-DallasTemperature sensors(&oneWire);
-
 //libs for OLED
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -71,9 +59,6 @@ void setup()   {
   Serial.begin(115200);
   pinMode(trigPin,OUTPUT);
   pinMode(echoPin,INPUT);
-  
-  // Start up the library
-  sensors.begin();
 
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   // initialize with the I2C addr 0x3C (for the 128x64)
