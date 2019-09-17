@@ -16,11 +16,6 @@ BSD license, check license.txt for more information
 All text above, and the splash screen must be included in any redistribution
 *********************************************************************/
 
-//libs for OLED
-#include <SPI.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
 //libs for DS18B20
 #include <OneWire.h>
 #include <DallasTemperature.h>
@@ -33,6 +28,9 @@ OneWire oneWire(ONE_WIRE_BUS);
 // Pass our oneWire reference to Dallas Temperature. 
 DallasTemperature sensors(&oneWire);
 
+//libs for OLED
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
 
@@ -78,7 +76,8 @@ void setup()   {
   sensors.begin();
 
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x64)
+  // initialize with the I2C addr 0x3C (for the 128x64)
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   // init done
   
   // Show image buffer on the display hardware.
