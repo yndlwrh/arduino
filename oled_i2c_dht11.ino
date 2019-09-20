@@ -92,7 +92,7 @@ int readDHT11()
         while(digitalRead(dataPin)==LOW)
         {
              if(timeout==0) return -1;
-             timeout++;
+             timeout--;
          }
          unsigned long t=micros();
 
@@ -121,7 +121,11 @@ int readDHT11()
 
 void loop() {
   int ret=readDHT11();
-  if(ret != 0) Serial.println(ret);
+  if(ret != 0)
+  {
+    Serial.println(ret);
+    return;
+  }
   Serial.print("Humidity: ");
   Serial.print(humidity);
   Serial.println(" %");
